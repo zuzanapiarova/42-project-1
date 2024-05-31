@@ -6,32 +6,47 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 12:59:57 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/05/30 19:16:44 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "libft.h"
+//#include "libft.h"
 
-void *ft_calloc(size_t nmemb, size_t size)
+void ft_bzero(void *s, size_t n)
 {
-	size_t	total;
-	unsigned char *byte;
-	void *ptr;
-	size_t i;
+	char *str;
+	str = s;
 
-	i = 0;
-	total = nmemb + size;
-	ptr = malloc(total);
-	if (ptr != NULL)
+	while (n > 0)
 	{
-		byte = (unsigned char *)ptr;
-		while (total > i)
-		{
-			byte[i] = 0;
-			i++;
-		}
+		*str = 0;
+		str++;
+		n--;
+	}
+}
+
+void *ft_calloc(size_t nitems, size_t size)
+{
+	void *ptr;
+	size_t n;
+
+	n = nitems * size;
+
+	if(nitems == 0 || size == 0)
+		return NULL;
+	else
+	{
+		ptr = malloc(n);
+		ft_bzero(ptr, n);
 	}
 	return (ptr);
+}
+
+int main()
+{
+	ft_calloc(4, 2);
+	printf("success");
 }

@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:55:46 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 16:01:05 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/05/31 15:05:48 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(void)
 	printf("bzero (should have value): %c\n", s[6]); //only first 2 characters are set to 0 by ft_bzero, so s[6] will print the 5th value in string s
 
 	//CALLOC
-	
+
 
 	//ISALNUM
 	int test = 97;
@@ -56,8 +56,43 @@ int main(void)
 	printf("isprint: %d\n", isprint(test4));
 	printf("ft_isprint: %d\n", ft_isprint(test4));
 
+	//MEMCHR
+	// char *str_memchr1;
+	// (void *) str_memchr1 = {0, 1, 2 , 3, 4, 5};
+	// printf("memchr: %s", memchr(str_memchr1, 3, 2));
+	// printf("ft_memchr: %s", ft_memchr(str_memchr1, 3, 2));
+	// char *str_memchr2;
+	// (void *)str_memchr2 = {98, 99, 100 ,101, 102 ,103};
+	// printf("memchr: %s", memchr(str_memchr2, 1, 4));
+	// printf("ft_memchr: %s", ft_memchr(str_memchr2, 1, 4));
+	// char *str_memchr3;
+	// (void *) str_memchr3 = "abcdef";
+	// printf("memchr: %s", memchr(str_memchr3, 'b', 4));
+	// printf("ft_memchr: %s", ft_memchr(str_memchr3, 'b', 4));
 
+	//MEMCMP
 
+	//MEMCPY
+
+	//MEMMOVE
+
+	//MEMSET
+
+	//STRCHR
+
+	//STRDUP
+
+	//STRLCAT
+
+	//STRLCPY
+
+	//STRLEN
+
+	//STRNCMP
+
+	//STRNSTR
+
+	//STRRCHR
 
 	//TOLOWER
 	int test20 = 'A';

@@ -22,8 +22,7 @@ SOURCES = \
 	ft_atoi.c \
 	ft_calloc.c \
 	ft_strdup.c \
-
-
+	ft_strlcat.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
