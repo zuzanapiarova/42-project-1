@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 16:09:03 by tomas             #+#    #+#             */
-/*   Updated: 2024/05/31 14:29:55 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:35:47 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:35:49 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,31 @@
 #include <stdio.h>
 #include <string.h>
 
-void *ft_memchr(const void *s, int c, size_t n)  // abcde, c, 4 --> *cde
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char *ps;
-	unsigned char d;
+	unsigned char	*chars;
+	unsigned char	d;
 
-	if(c >= 256)
-		c -= 256;
-	ps = (const char *) s;
-	d = (unsigned char)c;
-
-	while(*ps >= 0 && n != 0)
+	chars = (unsigned char *) s;
+	d = (unsigned char) c;
+	if (d > 255)
+		d %= 255;
+	while (n > 0)
 	{
-		//printf("char: %c, memory location: %p\n", *ps, &ps); // memory location ps sa nemeni ajked incrementujeme ps++ ?!!??!?!?
-		if(*ps == d)
-			return ((void *)ps);
-		else
-			//printf("not equal\n");
-		ps++;
+		if (*chars == d)
+			return ((void *) chars);
+		chars++;
 		n--;
 	}
 	return (NULL);
 }
+
+// int	main(void)
+// {
+// 	char s[] = "abcdef";
+// 	unsigned int c = 98;
+// 	char *result1 = memchr(s, c, 2);
+// 	char *result2 = ft_memchr(s, c, 2);
+// 	printf("%s\n", result1);
+// 	printf("%s\n", result2);
+// }

@@ -5,24 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 17:03:03 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 12:59:57 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:40:06 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:40:08 by zuzanapiaro      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zpiarova <zpiarova@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/31 21:38:49 by zpiarova          #+#    #+#             */
+/*   Updated: 2024/05/31 21:46:53 by zpiarova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
+#include <stdio.h>
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (*s)
-	{
+	while (s[i])
 		i++;
-		s++;
-	}
 	return (i);
 }
 
+// int	main(void)
+// {
+// 	char *s = "abcdef";
+// 	printf("%d", (int)ft_strlen(s));
+// }

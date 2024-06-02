@@ -5,28 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 16:45:50 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 12:59:57 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:35:56 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:44:44 by zuzanapiaro      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zpiarova <zpiarova@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/31 21:26:03 by zpiarova          #+#    #+#             */
+/*   Updated: 2024/05/31 21:37:26 by zpiarova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*pS1;
-	const unsigned char	*pS2;
+	unsigned char	*chars1;
+	unsigned char	*chars2;
+	//size_t			i;
 
-	pS1 = s1;
-	pS2 = s2;
-	while (*pS1 && (n != 0))
+	chars1 = (unsigned char *) s1;
+	chars2 = (unsigned char *) s2;
+	//i = 0;
+	while (n > 0)
 	{
-		if (*pS1 != *pS2)
-			return (*pS1 - *pS2);
-		pS1++;
-		pS2++;
+		if (*chars1 != *chars2)
+			return (*chars1 - *chars2);
+		n--;
+		chars1++;
+		chars2++;
 	}
-	return (*pS1 - *pS2);
+	return (0);
 }
+
+// int	main(void)
+// {
+// 	char s11[] = "abcdef";
+// 	char s12[] = "bbcdef";
+// 	char s21[] = "abcdef";
+// 	char s22[] = "bbcdef";
+// 	printf("%d\n", memcmp(s11, s12, 2));
+// 	printf("%d\n", ft_memcmp(s21, s22, 2));
+// }

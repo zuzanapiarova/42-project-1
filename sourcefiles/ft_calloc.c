@@ -5,48 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
-/*   Updated: 2024/05/30 19:16:44 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:35:05 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 18:16:34 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-//#include "libft.h"
+#include <limits.h>
+#include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void *ft_calloc(size_t nelem, size_t elsize)
 {
-	char *str;
-	str = s;
+	char	*result;
+	int size;
+	int i;
 
-	while (n > 0)
-	{
-		*str = 0;
-		str++;
-		n--;
-	}
-}
-
-void *ft_calloc(size_t nitems, size_t size)
-{
-	void *ptr;
-	size_t n;
-
-	n = nitems * size;
-
-	if(nitems == 0 || size == 0)
+	i = 0;
+	size = nelem * elsize;
+	if((int)nelem == INT_MAX || (int)elsize == INT_MAX || (int)nelem == INT_MIN || (int)elsize == INT_MIN)
+		return (NULL);
+	if (nelem != 0 && elsize > SIZE_MAX / nelem)
+		return (NULL);
+	result = (char *)malloc(size);
+	if(!result)
 		return NULL;
-	else
+	while(i < size)
 	{
-		ptr = malloc(n);
-		ft_bzero(ptr, n);
+		result[i] = 0;
+		i++;
 	}
-	return (ptr);
+	return (result);
 }
-
-int main()
-{
-	ft_calloc(4, 2);
-	printf("success");
-}
+// int main()
+// {
+// 	ft_calloc(4, 2);
+// 	printf("success");
+// }

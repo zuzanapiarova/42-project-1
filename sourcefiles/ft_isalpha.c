@@ -5,19 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 13:54:15 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 15:48:11 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:35:18 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:35:20 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ctype.h>
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_isalpha(int c)
 {
-	int	result;
+	unsigned char	d;
 
-	result = 0;
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		result = 1;
-	return (result);
+	d = (unsigned char) c;
+	if ((d >= 65 && d <= 90) || (d >= 97 && d <= 122))
+		return (1);
+	return (0);
 }
+
+// int	main(void)
+// {
+// 	printf("%d\n", ft_isalpha(57));
+// 	printf("%d\n", isalpha(57));
+// }

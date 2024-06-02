@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 19:19:34 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 13:33:01 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:38:17 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:38:32 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,33 @@
 #include <string.h>
 #include "libft.h"
 
-void *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n) // abcdef, A, 4 --> AAAAef
 {
-	unsigned char* 	ptr;
+	unsigned char	*chars;
+	unsigned char	d;
 	size_t			i;
 
+	chars = (unsigned char *) s;
+	if (c >= 256)
+		c -= 256;
+	d = (unsigned char) c;
 	i = 0;
-	ptr = (unsigned char *)s;
 	while (i < n)
 	{
-		ptr[i] = (unsigned char)c;
+		chars[i] = d;
 		i++;
 	}
 	return (s);
 }
+
+// int	main(void)
+// {
+// 	char			s[50] = "abcdef";
+// 	unsigned char	c = 97;
+// 	size_t			n = 4;
+
+// 	char	*result1 = ft_memset(s, c, n);
+// 	printf("%s\n", result1);
+// 	char	*result2 = memset(s, c, n);
+// 	printf("%s\n", result2);
+// }

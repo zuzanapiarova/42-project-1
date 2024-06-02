@@ -5,26 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 15:36:48 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 13:39:01 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:38:52 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:38:54 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <stdio.h>
 #include <string.h>
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	const char *d;
+	char			*res;
+	unsigned char	d;
 
-	// d = '\0';
-	// if (c == '\0')
-	// 	return ((char *)d);
-	while (*s)
+	d = (unsigned char) c;
+	res = (char *) s;
+	while (*res || (*res == '\0' && *res == d))
 	{
-		d = s;
-		if (c == *s)
-			return ((char *)d);
-		s++;
+		if (*res == d )
+			return (res);
+		res++;
 	}
-	return (NULL);
+	return (0);
 }
+
+// int	main(void)
+// {
+// 	const char *s = "abcdef";
+// 	int c = 0;
+// 	printf("%s\n", strchr(s, c));
+// 	printf("%s\n", ft_strchr(s, c));
+// }

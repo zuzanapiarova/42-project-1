@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 13:20:50 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 15:57:52 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:41:28 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:41:30 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ctype.h>
 #include "libft.h"
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
-		c -= 32;
+		return (c - 32);
 	return (c);
 }

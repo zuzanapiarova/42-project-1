@@ -5,36 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 13:09:36 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 12:59:57 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:40:48 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:44:20 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	const char	*pS;
-	int		i;
+	char			*rs;
+	char			*mid;
+	//int				i;
+	unsigned char	d;
 
-	i = 0;
-	pS = s;
-	if (c == 0)
-		return (NULL);
-	while (*s)
+	rs = (char *) s;
+	d = (unsigned char) c;
+	if (d > 255)
+		d %= 255;
+	//i = 0;
+	while (*rs || (*rs == '\0' && *rs == d))
 	{
-		if (*s == c)
-			i++;
-		s++;
+		if (*rs == '\0')
+			return (rs);
+		if (*rs == d)
+			mid = rs;
+		rs++;
 	}
-	while (i >= 0)
-	{
-		if ((*pS == c) && (i > 0))
-			--i;
-		if (i == 0)
-			return ((char *)pS);
-		pS++;
-	}
-	return (NULL);
+	if (*mid == d)
+		return (mid);
+	else
+		return (0);
 }
+
+// int	main(void)
+// {
+// 	const char	*s1 = "abcdeadf";
+// 	const char	*s2 = "abcdeadf";
+// 	int c = 353;
+// 	printf("%s\n", strrchr(s1, c));
+// 	printf("%s\n", ft_strrchr(s2, c));
+// }

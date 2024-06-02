@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 15:21:50 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 12:59:57 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/01 21:44:00 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 18:43:09 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,40 @@
 
 char *ft_strnstr(const char *big, const char *little, size_t len)
 {
+	//char *result;
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	if(*little == '\0')
+		return ((char *) big);
+	while(big[i] && len > 0)
+	{
+		if(little[0] == big[i])
+		{
+			//result = (char *)big + i;
+			while(little[j] == big[i])
+			{
+				i++;
+				j++;
+			}
+		}
+		i++;
+		len--;
+	}
+	return (NULL);
+}
+
+// int main(void)
+// {
+// 	char *big = "ababcdef";
+// 	char *little = "abc";
+// 	printf("%s\n", ft_strnstr(big, little, 10));
+// }
+
+
+/* {
 	size_t		il;
 	size_t		i;
 	const char *temp;
@@ -41,4 +75,4 @@ char *ft_strnstr(const char *big, const char *little, size_t len)
 		big++;
 	}
 	return (NULL);
-}
+} */

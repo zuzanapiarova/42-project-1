@@ -5,16 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 16:39:50 by tomas             #+#    #+#             */
-/*   Updated: 2024/04/14 15:49:44 by zuzanapiaro      ###   ########.fr       */
+/*   Created: 2024/06/02 13:35:25 by zuzanapiaro       #+#    #+#             */
+/*   Updated: 2024/06/02 13:35:27 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ctype.h>
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
+	unsigned char	d;
+
+	d = (unsigned char) c;
+	if (d >= 0 && d <=127)
 		return (1);
 	return (0);
 }
