@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 13:40:48 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/02 13:44:20 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/05 22:11:48 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,32 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char			*rs;
-	char			*mid;
-	//int				i;
+	char			*chars;
+	char			*result;
 	unsigned char	d;
 
-	rs = (char *) s;
+	result = NULL;
+	chars = (char *) s;
 	d = (unsigned char) c;
+	if(d == 0)
+		return chars + strlen(chars);
 	if (d > 255)
 		d %= 255;
-	//i = 0;
-	while (*rs || (*rs == '\0' && *rs == d))
+	while (*chars)
 	{
-		if (*rs == '\0')
-			return (rs);
-		if (*rs == d)
-			mid = rs;
-		rs++;
+		if (*chars == d)
+			result = chars;
+		chars++;
 	}
-	if (*mid == d)
-		return (mid);
-	else
-		return (0);
+	return (char *) result;
 }
 
 // int	main(void)
 // {
-// 	const char	*s1 = "abcdeadf";
-// 	const char	*s2 = "abcdeadf";
+// 	char s[] = "tripouille";
+// 	char s2[] = "ltripouiel";
+// 	char s3[] = "";
 // 	int c = 353;
-// 	printf("%s\n", strrchr(s1, c));
-// 	printf("%s\n", ft_strrchr(s2, c));
+// 	printf("%s\n", strrchr(s, 0));
+// 	printf("%s\n", ft_strrchr(s, 0));
 // }

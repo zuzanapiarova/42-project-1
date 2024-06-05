@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 19:35:16 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/04 17:06:34 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/05 17:57:21 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t ftt_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t i;
 	size_t j;
@@ -64,6 +64,29 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 	printf("printing 4\n");
 	dst[i] = '\0';
 	return dest_size + src_size;
+}
+
+size_t ft_strlcat(char *dst, const char *src, size_t size) {
+    size_t dst_size;
+    size_t src_size;
+	size_t max_size;
+
+	dst_size = strlen(dst);
+	if(size < dst_size)
+		dst_size = size;
+	src_size = strlen(src);
+    max_size = size - dst_size - 1;
+    if (size <= dst_size) {
+        return size + src_size;
+    }
+
+    if (max_size > src_size) {
+        max_size = src_size;
+    }
+    memcpy(dst + dst_size, src, max_size);
+    dst[dst_size + max_size] = '\0';
+
+    return dst_size + src_size;
 }
 
 // int main(void)
