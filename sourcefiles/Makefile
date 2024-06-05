@@ -24,6 +24,7 @@ SOURCES = \
 	ft_strlcat.c \
 	ft_calloc.c \
 	ft_substr.c \
+	ft_strjoin.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
