@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 23:22:54 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/06 01:10:22 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/06 11:44:29 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char *get_start(char *s1, char *set)
 	while(*s1)
 	{
 		i = 0;
-		difference = 1;
+		difference = 1; //set ifference for each character to 1 and as soon as it matches something from set multiply by 0 so it cannot go back
 		while(set[i])
 		{
 			if(set[i] ==  *s1)
@@ -40,7 +40,7 @@ char *get_start(char *s1, char *set)
 		}
 		s1++;
 	}
-	return NULL;
+	return s1 + strlen(s1); //return pointer to location one after the length of the string - at index i = strlen(s1)
 }
 
 int get_end_index(char *s1, char *set)
@@ -52,7 +52,7 @@ int get_end_index(char *s1, char *set)
 
 	end_index = strlen(s1);
 	//printf("end index: %d\n", end_index);
-	while(s1[end_index - 1])
+	while(end_index > 0)
 	{
 		//printf("eeend index: %c\n", s1[end_index - 1]);
 		i = 0;
@@ -65,9 +65,7 @@ int get_end_index(char *s1, char *set)
 		}
 		//printf("%c has difference %d\n", *s1, difference);
 		if(difference == 1)
-		{
 			return end_index;
-		}
 		end_index--;
 	}
 	return 0;
@@ -78,30 +76,38 @@ char *ft_strtrim(char const *s1, char const *set)
 	char *substring;
 	int j;
 	char *start = get_start((char *)s1, (char *)set);
+	printf("start: %s\n", start);
 	int end_index = get_end_index((char *)start, (char *)set);
 	//printf("final end index: %d\n", end_index);
 
-	j = 0;
-	if(start == NULL)
-	{
-		substring = "";
+	if (start == s1 + strlen(s1))
+    {
+		printf("not found\n");
+		substring = (char *)malloc(1);
+		if(!substring)
+       		return NULL;
+		else
+			substring[0] = '\0';
 		return substring;
-	}
-	else
-		substring = start;
-	substring = (char *)malloc(end_index * sizeof(char));
+    }
+
+	substring = (char *)malloc((end_index + 1) * sizeof(char));
+	if(!substring)
+		return NULL;
+	j = 0;
 	while(j < end_index)
 	{
 		substring[j] = *start;
 		j++;
 		start++;
 	}
+	substring[j] = '\0';
 	return substring;
 }
 
 // int main(void)
 // {
-// 	char *s1 = "xxx...x..x.";
-// 	char *set = "x.";
-// 	printf("result: %s\n", ft_strtrim(s1, set));
+// 	char * s = ft_strtrim("   xxx   xxx", " x");
+// 	//char *set = "x.";
+// 	printf("result: %s\n", s);
 // }
