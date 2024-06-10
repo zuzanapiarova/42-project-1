@@ -28,6 +28,7 @@ SOURCES = \
 	ft_strtrim.c \
 	ft_split.c \
 	ft_itoa.c \
+	ft_strmapi.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
