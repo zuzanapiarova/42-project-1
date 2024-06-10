@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 22:15:00 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/10 20:59:36 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/10 21:03:22 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	substring[i] = '\0';
 	return substring;
 }
-
 
 // int main(void)
 // {
