@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 22:15:00 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/09 15:15:09 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/10 20:59:36 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char *substring;
+	unsigned int str_len;
 	size_t i;
 
 	i = 0;
+	if(s == NULL)
+		return NULL;
+	str_len = strlen(s);
+    if (start >= str_len)
+        return strdup("");
 	if(len > strlen(s) - start)
 		len = strlen(s) - start;
 	substring = (char *) malloc((len + 1) * sizeof(char));
@@ -33,6 +39,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	substring[i] = '\0';
 	return substring;
 }
+
 
 // int main(void)
 // {
