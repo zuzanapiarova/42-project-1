@@ -1,6 +1,16 @@
 #ifndef LIBFT_H
 #define LIBFT_H
 #include <string.h>
+#include <stddef.h>
+
+typedef struct s_list
+
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
+t_list *ft_lstnew(void *content);
 
 int	ft_isalnum(int c); //
 int	ft_isalpha(int c); //

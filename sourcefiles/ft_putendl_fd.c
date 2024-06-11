@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:21:31 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/10 21:08:05 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/11 21:11:36 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 void ft_putendl_fd(char *s, int fd)
 {
-	char *nl;
-
 	while(*s)
 	{
 			write(fd, s, 1);

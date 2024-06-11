@@ -1,58 +1,33 @@
-NAME = libft.a
-SOURCES = \
-	ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_strlen.c \
-	ft_memset.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_strlcpy.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_strlcat.c \
-	ft_strdup.c \
-	ft_calloc.c \
-	ft_substr.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_split.c \
-	ft_itoa.c \
-	ft_strmapi.c \
-	ft_striteri.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-
-OBJECTS = $(SOURCES:.c=.o)
-
-CFLAGS = -Wall -Wextra -Werror
 CC = cc
-all: $(NAME)
-perms:
-	chmod 777 $(SOURCES)
-$(NAME): $(OBJECTS)
-	$(AR) -r $(NAME) $?
-	chmod 777 $(NAME)
-allc: all clean
-%.o: %.c
-	$(CC) -c $(CFLAGS) $?
-clean:
-	rm -f $(OBJECTS)
-	rm -f *.so
-fclean: clean
-	rm -f $(NAME)
-re: fclean all
-.PHONY: all bonus clean fclean re
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -rf
+NAME = libft.a
 
+LIB_SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c\
+           ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c\
+           ft_memcmp.c ft_putnbr_fd.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c \
+           ft_strmapi.c ft_itoa.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_split.c
+LIB_OBJS = $(LIB_SRCS:.c=.o)
+
+BONUS_SRCS = ft_lstnew.c
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(LIB_OBJS)
+	ar rc $(NAME) $(LIB_OBJS)
+	ranlib $(NAME)
+
+bonus: $(LIB_OBJS) $(BONUS_OBJS)
+	ar rc $(NAME) $(LIB_OBJS) $(BONUS_OBJS)
+	ranlib $(NAME)
+
+clean:
+	$(RM) $(LIB_OBJS) $(BONUS_OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re bonus
