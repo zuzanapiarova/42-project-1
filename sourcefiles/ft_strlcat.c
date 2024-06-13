@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 19:35:16 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/05 17:57:21 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 01:13:52 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,80 +14,81 @@
 #include "libft.h"
 #include <stdio.h>
 
-size_t ftt_strlcat(char *dst, const char *src, size_t size)
+// size_t ft_strlcat(char *dst, const char *src, size_t size)
+// {
+// 	size_t i;
+// 	size_t j;
+// 	size_t dest_size;
+// 	size_t src_size;
+// 	size_t free_space;
+
+// 	dest_size = strlen(dst);
+// 	i = dest_size;
+// 	src_size = strlen(src);
+// 	j = 0;
+
+// 	if(size == 0)
+// 	{
+// 		printf("printing 0\n");
+// 		dst[dest_size] = '\0';
+// 		return src_size;
+// 	}
+// 	else if(size < dest_size)
+// 	{
+// 		printf("printing 1\n");
+// 		dst[size] = '\0';
+// 		return size + src_size;
+// 	}
+// 	else if(size == 1)
+// 	{
+// 		printf("printing 2\n");
+// 		return (src_size);
+// 	}
+// 	else if(size == 1 && dst[0] == 0)
+// 	{
+// 		printf("printing 3\n");
+// 		dst[0] = '\0';
+// 		return src_size;
+// 	}
+// 	if(size > dest_size + src_size + 1)
+// 		free_space = size - dest_size - src_size - 1;
+// 	else
+// 		free_space = size - dest_size - 1;
+// 	while(src[j] && free_space)
+// 	{
+// 			dst[i] = src[j];
+// 			i++;
+// 			j++;
+// 			free_space--;
+// 	}
+// 	// printf("printing 4\n");
+// 	dst[i] = '\0';
+// 	return dest_size + src_size;
+// }
+
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t j;
-	size_t dest_size;
-	size_t src_size;
-	size_t free_space;
-
-	dest_size = strlen(dst);
-	i = dest_size;
-	src_size = strlen(src);
-	j = 0;
-
-	if(size == 0)
-	{
-		printf("printing 0\n");
-		dst[dest_size] = '\0';
-		return src_size;
-	}
-	else if(size < dest_size)
-	{
-		printf("printing 1\n");
-		dst[size] = '\0';
-		return size + src_size;
-	}
-	else if(size == 1)
-	{
-		printf("printing 2\n");
-		return (src_size);
-	}
-	else if(size == 1 && dst[0] == 0)
-	{
-		printf("printing 3\n");
-		dst[0] = '\0';
-		return src_size;
-	}
-	if(size > dest_size + src_size + 1)
-		free_space = size - dest_size - src_size - 1;
-	else
-		free_space = size - dest_size - 1;
-	while(src[j] && free_space)
-	{
-			dst[i] = src[j];
-			i++;
-			j++;
-			free_space--;
-	}
-	printf("printing 4\n");
-	dst[i] = '\0';
-	return dest_size + src_size;
-}
-
-size_t ft_strlcat(char *dst, const char *src, size_t size) {
+	size_t	total;
     size_t dst_size;
     size_t src_size;
 	size_t max_size;
 
-	dst_size = strlen(dst);
+	src_size = ft_strlen(src);
+	dst_size = ft_strlen(dst);
 	if(size < dst_size)
 		dst_size = size;
-	src_size = strlen(src);
+	total = dst_size + src_size;
+    if (size == dst_size)
+        return (total);
     max_size = size - dst_size - 1;
-    if (size <= dst_size) {
-        return size + src_size;
-    }
-
-    if (max_size > src_size) {
+    if (max_size > src_size)
         max_size = src_size;
-    }
-    memcpy(dst + dst_size, src, max_size);
+    ft_memcpy(dst + dst_size, src, max_size);
     dst[dst_size + max_size] = '\0';
-
-    return dst_size + src_size;
+    return (total);
 }
+
+// size = 6
 
 // int main(void)
 // {

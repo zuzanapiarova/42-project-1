@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:32:09 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/10 23:20:11 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 00:43:15 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list *result;
 	result = (t_list *)malloc(sizeof(t_list));

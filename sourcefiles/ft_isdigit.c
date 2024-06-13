@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 13:35:32 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/02 13:35:34 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 01:45:16 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int	ft_isdigit(int c)
 {
-	unsigned char	d;
+	int result;
 
-	d = (unsigned char) c;
-	if (d >= 48 && d <= 57)
-		return (1);
-	return (0);
+	result = 0;
+	if (c >= '0' && c <= '9')
+		result = 1;
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 13:36:31 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/02 13:39:33 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 03:13:19 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	chardest = (char *) dest;
 	charsrc = (char *) src;
+	if (!dest && !src)
+		return (NULL);
 	while (n > 0)
 	{
 		chardest[i] = charsrc[i];

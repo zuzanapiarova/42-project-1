@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:27:10 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/09 16:06:23 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 02:38:07 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,25 +60,25 @@ void	free_array(size_t count, char **array)
 	free(array);
 }
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char *substring;
-	size_t i;
+// char *ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	char *substring;
+// 	size_t i;
 
-	i = 0;
-	if(len > strlen(s) - start)
-		len = strlen(s) - start;
-	substring = (char *)malloc((len + 1) * sizeof(char));
-	if(!substring)
-		return NULL;
-	while(i < len)
-	{
-		substring[i] = s[i + start];
-		i++;
-	}
-	substring[i] = '\0';
-	return substring;
-}
+// 	i = 0;
+// 	if(len > strlen(s) - start)
+// 		len = strlen(s) - start;
+// 	substring = (char *)malloc((len + 1) * sizeof(char));
+// 	if(!substring)
+// 		return NULL;
+// 	while(i < len)
+// 	{
+// 		substring[i] = s[i + start];
+// 		i++;
+// 	}
+// 	substring[i] = '\0';
+// 	return substring;
+// }
 
 char **ft_split(char const *s, char c)
 {
@@ -100,7 +100,7 @@ char **ft_split(char const *s, char c)
 	}
 	count = count_elements(s, c);
 	//printf("count: %d\n", count);
-	array = (char **)malloc((count + 1) * sizeof(char *));
+	array = malloc((count + 1) * sizeof(char *));
 	if(!array)
 		return NULL;
 	while(k < count)

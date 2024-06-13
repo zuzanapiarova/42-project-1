@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:11:55 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/02 18:22:58 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 01:56:09 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@ char	*ft_strdup(const char *s1)
 	int i;
 
 	i = 0;
-	len = strlen(s1);
-	copy = (char *) malloc(len * sizeof(char));
+	len = ft_strlen(s1);
+	copy = malloc((len + 1) * sizeof(char));
+	if (copy == NULL)
+		return (NULL);
 	while(s1[i])
 	{
 		copy[i] = s1[i];
 		i++;
 	}
+	copy[i] = '\0';
 	return (copy);
 }
 

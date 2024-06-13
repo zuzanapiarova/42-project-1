@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:32:21 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/10 13:01:01 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 02:51:35 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	length = i;
 	result = (char *)malloc(length * sizeof(char) + 1);
+	if (!result)
+		return (NULL);
 	i = 0;
 	while(s[i])
 	{

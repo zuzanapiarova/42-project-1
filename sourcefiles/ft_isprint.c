@@ -6,7 +6,7 @@
 /*   By: zuzanapiarova <zuzanapiarova@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 13:35:40 by zuzanapiaro       #+#    #+#             */
-/*   Updated: 2024/06/02 13:35:42 by zuzanapiaro      ###   ########.fr       */
+/*   Updated: 2024/06/13 01:51:24 by zuzanapiaro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int	ft_isprint(int c)
 {
-	unsigned char	d;
+	int	result;
 
-	d = (unsigned char) c;
-	if (d >= 32 && d <= 126)
-		return (1);
-	return (0);
+	result = 0;
+	if (c >= 32 && c <= 126)
+		result = 1;
+	return (result);
 }
